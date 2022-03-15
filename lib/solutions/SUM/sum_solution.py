@@ -12,8 +12,9 @@ def compute(int_1, int_2):
         if not isinstance(integer, int):
             raise Exception
         if not lower_limit <= integer <= upper_limit:
-            raise OutOfRange(integer, lower_limit, upper_limit)
+            raise Exception
 
     int_sum = int_1 + int_2
     return int_sum
+
 

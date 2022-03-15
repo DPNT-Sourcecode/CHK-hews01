@@ -21,7 +21,3 @@ def test_sum_solution_rejects_non_integers(value_1, value_2, expected_error, exp
     with expected_error as exc_info:
         sum_solution(value_1, value_2)
     assert exc_info.value.message == expected_error_message
-
-
-
-

@@ -55,10 +55,3 @@ def test_sum_solution_only_accepts_value_within_range(value_1, value_2, expected
         sum_solution(value_1, value_2)
     if exc_info or expected_error_message:
         assert exc_info.value.message == expected_error_message
-
-
-
-
-
-
-

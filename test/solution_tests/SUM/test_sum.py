@@ -14,7 +14,7 @@ def does_not_raise():
     [
         (1, 2, 3),
         (100, 100, 200),
-        (100, 100, 200),
+        (100, 1, 101),
     ]
 )
 def test_sum_two_integers_adds_values(value_1, value_2, expected_value):
@@ -42,6 +42,7 @@ def test_sum_two_integers_only_accepts_integers(value_1, value_2, expected_error
 @pytest.mark.parametrize(
     'value_1, value_2, expected_error, expected_error_message',
     [
+        (100, 1, does_not_raise(), ''),
         (-1, 2, pytest.raises(OutOfRange), '-1 is not between 1 and 100.'),
         (1, 200, pytest.raises(OutOfRange), '200 is not between 1 and 100.'),
         (1000, 5, pytest.raises(OutOfRange), '1000 is not between 1 and 100.'),
@@ -52,7 +53,9 @@ def test_sum_two_integers_only_accepts_integers(value_1, value_2, expected_error
 def test_sum_two_integers_only_accepts_value_within_range(value_1, value_2, expected_error, expected_error_message):
     with expected_error as exc_info:
         sum_two_integers(value_1, value_2)
-    assert exc_info.value.message == expected_error_message
+    if exc_info or expected_error_message:
+        assert exc_info.value.message == expected_error_message
+
 
 
 

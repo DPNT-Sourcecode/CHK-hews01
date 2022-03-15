@@ -10,9 +10,10 @@ def compute(int_1, int_2):
 
     for integer in int_list:
         if not isinstance(integer, int):
-            raise NotAnInteger(integer)
+            raise Exception
         if not lower_limit <= integer <= upper_limit:
             raise OutOfRange(integer, lower_limit, upper_limit)
 
     int_sum = int_1 + int_2
     return int_sum
+

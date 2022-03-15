@@ -29,7 +29,7 @@ def test_sum_solution_adds_values(value_1, value_2, expected_value):
         ([], 10, pytest.raises(Exception)),
         ({}, 10, pytest.raises(Exception)),
         (3, 1000.3, pytest.raises(Exception)),
-        ((2, 3, 4), 1000.3, pytest.raises(Exception)),
+        ((2, 3, 4), 1, pytest.raises(Exception)),
     ]
 )
 def test_sum_solution_only_accepts_integers(value_1, value_2, expected_error):
@@ -40,7 +40,7 @@ def test_sum_solution_only_accepts_integers(value_1, value_2, expected_error):
 @pytest.mark.parametrize(
     'value_1, value_2, expected_error',
     [
-        (100, 1, does_not_raise(), ''),
+        (100, 1, does_not_raise()),
         (-1, 2, pytest.raises(Exception)),
         (1, 200, pytest.raises(Exception)),
         (1000, 5, pytest.raises(Exception)),
@@ -51,6 +51,8 @@ def test_sum_solution_only_accepts_integers(value_1, value_2, expected_error):
 def test_sum_solution_only_accepts_value_within_range(value_1, value_2, expected_error):
     with expected_error:
         compute(value_1, value_2)
+
+
 
 
 

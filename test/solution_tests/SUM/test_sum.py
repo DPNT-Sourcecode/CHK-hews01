@@ -6,7 +6,10 @@ import pytest
 def test_sum_solution_adds_values():
     assert sum_solution(1, 2) == 3
 
-
+@pytest.mark.parametrize(
+    pytest.param
+)
 def test_sum_solution_rejects_non_integers():
     with pytest.raises(NotAnInteger) as exc_info:
         sum_solution('a', 10)
+

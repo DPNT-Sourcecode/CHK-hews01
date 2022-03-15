@@ -1,4 +1,4 @@
-from solutions.SUM import sum_solution
+from solutions.SUM import sum_two_integers
 from errors.SUM_R1_errors import NotAnInteger, OutOfRange
 import pytest
 from contextlib import contextmanager
@@ -9,15 +9,22 @@ def does_not_raise():
     yield
 
 
-def test_sum_solution_adds_values():
-    assert sum_solution(1, 2) == 3
+@pytest.mark.parametrize(
+    'value_1, value_2, expected_value',
+    [
+        (1, 2, 3),
+        (100, 100, 200),
+        (100, 100, 200),
+    ]
+)
+def test_sum_two_integers_adds_values(value_1, value_2, expected_value):
+    assert sum_two_integers(value_1, value_2) == expected_value
 
 
 @pytest.mark.parametrize(
     'value_1, value_2, expected_error, expected_error_message',
     [
         (1, 2, does_not_raise(), ''),
-        (21, 2, does_not_raise(), ''),
         ('a', 10, pytest.raises(NotAnInteger), 'a is not an integer.'),
         ([], 10, pytest.raises(NotAnInteger), '[] is not an integer.'),
         ({}, 10, pytest.raises(NotAnInteger), '{} is not an integer.'),
@@ -25,9 +32,9 @@ def test_sum_solution_adds_values():
         ((2, 3, 4), 1000.3, pytest.raises(NotAnInteger), '(2, 3, 4) is not an integer.')
     ]
 )
-def test_sum_solution_only_accepts_integers(value_1, value_2, expected_error, expected_error_message):
+def test_sum_two_integers_only_accepts_integers(value_1, value_2, expected_error, expected_error_message):
     with expected_error as exc_info:
-        sum_solution(value_1, value_2)
+        sum_two_integers(value_1, value_2)
     if exc_info or expected_error_message:
         assert exc_info.value.message == expected_error_message
 
@@ -42,10 +49,11 @@ def test_sum_solution_only_accepts_integers(value_1, value_2, expected_error, ex
         (100, 0, pytest.raises(OutOfRange), '0 is not between 1 and 100.'),
     ]
 )
-def test_sum_solution_out_of_range_exception(value_1, value_2, expected_error, expected_error_message):
+def test_sum_two_integers_only_accepts_value_within_range(value_1, value_2, expected_error, expected_error_message):
     with expected_error as exc_info:
-        sum_solution(value_1, value_2)
+        sum_two_integers(value_1, value_2)
     assert exc_info.value.message == expected_error_message
+
 
 
 

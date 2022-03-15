@@ -3,4 +3,3 @@ class NotAString(Exception):
     def __init__(self, variable):
         self.message = "{} is not a string.".format(variable)
         super().__init__(self.message)
-

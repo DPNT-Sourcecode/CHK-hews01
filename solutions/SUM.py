@@ -1,7 +1,7 @@
 from errors.SUM_R1_errors import NotAnInteger, OutOfRange
 
 
-def sum_two_integers(int_1, int_2):
+def sum_solution(int_1, int_2):
 
     int_list = [int_1, int_2]
     lower_limit = 1
@@ -15,6 +15,7 @@ def sum_two_integers(int_1, int_2):
 
     int_sum = int_1 + int_2
     return int_sum
+
 
 
 

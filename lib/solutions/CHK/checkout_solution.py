@@ -76,6 +76,3 @@ def checkout(skus):
             total_price += unit_price * sku_count
 
     return total_price
-
-
-

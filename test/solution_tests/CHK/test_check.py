@@ -57,7 +57,7 @@ def test_checkout_solution(input_value, expected_value):
         ('AAAAAAAAA', 380),
         ('BBBBB', 120),
         ('HHHHHHHHHHHHHHH', 125),
-        ('KKK', 230),
+        ('KKK', 190),
         ('PPPPPP', 250),
         ('QQQQQQQ', 190),
         ('VVVVV', 220)
@@ -96,3 +96,4 @@ def test_checkout_solution_free_item(input_value, expected_value):
 )
 def test_checkout_solution_grouped_items(input_value, expected_value):
     assert checkout(input_value) == expected_value
+

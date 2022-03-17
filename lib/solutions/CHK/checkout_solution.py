@@ -15,7 +15,7 @@ price_table = {
         'H': {"Price": 10, "Special Offers": [{'Units': 5, "Price": 45}, {'Units': 10, "Price": 80}]},
         'I': {"Price": 35},
         'J': {"Price": 60},
-        'K': {"Price": 70, "Special Offers": [{'Units': 2, "Price": 150}]},
+        'K': {"Price": 70, "Special Offers": [{'Units': 2, "Price": 120}]},
         'L': {"Price": 90},
         'M': {"Price": 15},
         'N': {"Price": 40, "Free Items": {'Units': 3, 'Item': "M"}},
@@ -99,5 +99,6 @@ def checkout(skus):
             total_price += unit_price * sku_count
 
     return total_price
+
 
 

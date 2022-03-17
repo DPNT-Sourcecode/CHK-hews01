@@ -50,6 +50,9 @@ def checkout(skus):
         else:
             total_price += unit_price * sku_count
 
+        print(sku, total_price)
+
     return total_price
+
 
 

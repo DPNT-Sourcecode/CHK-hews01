@@ -81,13 +81,8 @@ def adjust_collector_for_free_items(sku_collector):
 def adjust_collector_for_grouped_items(sku_collector):
     for sku in price_table.keys():
         if sku.startswith("Group"):
-            sku_count = sku_collector[sku]
-            sku_row = price_table[sku]
 
-            sku_grouped_items = sku_row.get('Grouped Items')
-            sku_counter = sku_count
-
-            print(sku_grouped_items)
+            print(sku)
 
     return sku_collector
 
@@ -124,3 +119,4 @@ def calculate_basket_price(sku_collector):
             total_price += unit_price * sku_count
 
     return total_price
+

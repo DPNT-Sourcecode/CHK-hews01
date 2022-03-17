@@ -57,16 +57,11 @@ def test_checkout_solution(input_value, expected_value):
         ('AAAAAA', 250),
         ('AAAAAAAAA', 380),
         ('BBBBB', 120),
-        ('s', -1),
-        (34234, -1),
-        ('EEB', 80),
-        ('EEEB', 120),
-        ('EEEEBB', 160),
-        ('F', 10),
-        ('FF', 20),
-        ('FFF', 20),
-        ('FFFF', 30),
-        ('FFFFFF', 40)
+        ('HHHHHHHHHHHHHH', 125),
+        ('KKK', 230),
+        ('PPPPPP', 250),
+        ('QQQQQQQ', 190),
+        ('VVVVV', 220)
     ]
 )
 def test_checkout_solution_multibuy(input_value, expected_value):
@@ -76,15 +71,6 @@ def test_checkout_solution_multibuy(input_value, expected_value):
 @pytest.mark.parametrize(
     'input_value,expected_value',
     [
-        ('AA', 100),
-        ('ABCD', 115),
-        ('AAA', 130),
-        ('BB', 45),
-        ('AAAAA', 200),
-        ('AAAAAA', 250),
-        ('AAAAAAAAA', 380),
-        ('BBBBB', 120),
-
         ('EEB', 80),
         ('EEEB', 120),
         ('EEEEBB', 160),

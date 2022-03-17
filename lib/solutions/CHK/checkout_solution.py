@@ -32,8 +32,15 @@ def checkout(skus):
         sku_free_items = sku_row.get('Free Items')
         sku_counter = sku_count
         if sku_free_items:
-            print(sku_free_items)
+            sku_free_item_units = sku_free_items['Units']
+            sku_free_item = sku_free_items['B']
 
+            if sku_free_item in sku_collector.keys():
+                while sku_counter != 0:
+                    if sku_counter - sku_free_item_units >= 0:
+                        sku_counter -= sku_free_item_units
+                        if sku_collector[sku_free_item] > 0:
+                            sku_collector[sku_free_item_units] -= 1
 
     total_price = 0
     for sku in sku_collector.keys():
@@ -66,3 +73,4 @@ def checkout(skus):
             total_price += unit_price * sku_count
 
     return total_price
+

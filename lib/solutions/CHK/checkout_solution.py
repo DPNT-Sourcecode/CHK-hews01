@@ -21,14 +21,14 @@ def checkout(skus):
         'K': {"Price": 80, "Special Offers": [{'Units': 2, "Price": 150}]},
         'L': {"Price": 90},
         'M': {"Price": 15},
-        'N': {"Price": 40},
+        'N': {"Price": 40, "Free Items": {'Units': 3, 'Item': "M"}},
         'O': {"Price": 10},
         'P': {"Price": 50, "Special Offers": [{'Units': 5, "Price": 200}]},
         'Q': {"Price": 30, "Special Offers": [{'Units': 3, "Price": 80}]},
-        'R': {"Price": 50},
+        'R': {"Price": 50, "Free Items": {'Units': 3, 'Item': "Q"}},
         'S': {"Price": 30},
         'T': {"Price": 20},
-        'U': {"Price": 40},
+        'U': {"Price": 40, "Free Items": {'Units': 3, 'Item': "U"}},
         'V': {"Price": 50, "Special Offers": [{'Units': 2, "Price": 90}, {'Units': 3, "Price": 130}]},
         'W': {"Price": 20},
         'X': {"Price": 90},
@@ -96,4 +96,5 @@ def checkout(skus):
             total_price += unit_price * sku_count
 
     return total_price
+
 

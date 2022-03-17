@@ -8,28 +8,28 @@ def checkout(skus):
     if not isinstance(skus, str):
         return -1
     price_table = {
-        "A": {"Price": 50, "Special Offers": [{'Units': 3, "Price": 130, 'PPU': 130/3}, {'Units': 5, "Price": 200, "PPU": 200/5}]},
-        "B": {"Price": 30, "Special Offers": [{'Units': 2, "Price": 45, 'PPU': 45/2}]},
+        "A": {"Price": 50, "Special Offers": [{'Units': 3, "Price": 130}, {'Units': 5, "Price": 200}]},
+        "B": {"Price": 30, "Special Offers": [{'Units': 2, "Price": 45}]},
         "C": {"Price": 20},
         "D": {"Price": 15},
         "E": {"Price": 40, "Free Items": {'Units': 2, 'Item': "B"}},
         "F": {"Price": 10, "Free Items": {'Units': 3, 'Item': "F"}},
         'G': {"Price": 20},
-        'H': {"Price": 10},
+        'H': {"Price": 10, "Special Offers": [{'Units': 5, "Price": 45}, {'Units': 10, "Price": 80}]},
         'I': {"Price": 35},
         'J': {"Price": 60},
-        'K': {"Price": 80},
+        'K': {"Price": 80, "Special Offers": [{'Units': 2, "Price": 150}]},
         'L': {"Price": 90},
         'M': {"Price": 15},
         'N': {"Price": 40},
         'O': {"Price": 10},
-        'P': {"Price": 50},
-        'Q': {"Price": 30},
+        'P': {"Price": 50, "Special Offers": [{'Units': 5, "Price": 200}]},
+        'Q': {"Price": 30, "Special Offers": [{'Units': 3, "Price": 80}]},
         'R': {"Price": 50},
         'S': {"Price": 30},
         'T': {"Price": 20},
         'U': {"Price": 40},
-        'V': {"Price": 50},
+        'V': {"Price": 50, "Special Offers": [{'Units': 2, "Price": 90}, {'Units': 3, "Price": 130}]},
         'W': {"Price": 20},
         'X': {"Price": 90},
         'Y': {"Price": 10},
@@ -80,7 +80,7 @@ def checkout(skus):
                 for sku_offer in sku_offers:
                     sku_offer_units = sku_offer.get('Units')
                     sku_offer_price = sku_offer.get('Price')
-                    sku_offer_ppu = sku_offer.get('PPU')
+                    sku_offer_ppu = sku_offer_price/sku_offer_units
 
                     if sku_offer_ppu < current_ppu and sku_counter >= sku_offer_units:
                         sku_decrementer = sku_offer_units
@@ -96,3 +96,4 @@ def checkout(skus):
             total_price += unit_price * sku_count
 
     return total_price
+

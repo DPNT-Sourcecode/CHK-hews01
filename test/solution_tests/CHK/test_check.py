@@ -80,11 +80,13 @@ def test_checkout_solution_multibuy(input_value, expected_value):
         ('FFFFFF', 40),
         ('NNNM', 120),
         ('RRRRRRQ', 300),
-        ("UUUUUUU", 200)
+        ("UUU", 120),
+        ("UUUU", 120)
     ]
 )
 def test_checkout_solution_free_item(input_value, expected_value):
     assert checkout(input_value) == expected_value
+
 
 
 

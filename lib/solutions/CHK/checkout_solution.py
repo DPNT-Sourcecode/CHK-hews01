@@ -15,7 +15,7 @@ price_table = {
         'H': {"Price": 10, "Special Offers": [{'Units': 5, "Price": 45}, {'Units': 10, "Price": 80}]},
         'I': {"Price": 35},
         'J': {"Price": 60},
-        'K': {"Price": 80, "Special Offers": [{'Units': 2, "Price": 150}]},
+        'K': {"Price": 70, "Special Offers": [{'Units': 2, "Price": 150}]},
         'L': {"Price": 90},
         'M': {"Price": 15},
         'N': {"Price": 40, "Free Items": {'Units': 3, 'Item': "M"}},
@@ -23,14 +23,14 @@ price_table = {
         'P': {"Price": 50, "Special Offers": [{'Units': 5, "Price": 200}]},
         'Q': {"Price": 30, "Special Offers": [{'Units': 3, "Price": 80}]},
         'R': {"Price": 50, "Free Items": {'Units': 3, 'Item': "Q"}},
-        'S': {"Price": 30},
+        'S': {"Price": 20},
         'T': {"Price": 20},
         'U': {"Price": 40, "Free Items": {'Units': 4, 'Item': "U"}},
         'V': {"Price": 50, "Special Offers": [{'Units': 2, "Price": 90}, {'Units': 3, "Price": 130}]},
         'W': {"Price": 20},
-        'X': {"Price": 90},
+        'X': {"Price": 17},
         'Y': {"Price": 10},
-        'Z': {"Price": 50},
+        'Z': {"Price": 21},
     }
 
 
@@ -99,4 +99,5 @@ def checkout(skus):
             total_price += unit_price * sku_count
 
     return total_price
+
 

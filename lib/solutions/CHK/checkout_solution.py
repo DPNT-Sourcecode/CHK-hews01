@@ -104,8 +104,7 @@ def adjust_collector_for_grouped_items(sku_collector):
                         remainder -= min_sku_units
                     elif min_sku_units > remainder:
                         group_sku_collector[min_sku]['Units'] = remainder
-                        remainder = 0
-
+                        break
             sku_collector[group_name] = group_sku_counter // group_units
             for sku in group_sku_collector.keys():
                 sku_collector[sku] = 0
@@ -153,5 +152,6 @@ def calculate_basket_price(sku_collector):
             total_price += unit_price * sku_count
 
     return total_price
+
 
 

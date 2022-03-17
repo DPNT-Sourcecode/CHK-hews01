@@ -21,13 +21,15 @@ def does_not_raise():
         ('AAA', 130),
         ('BB', 45),
         ('AAAAAA', 260),
+        ('s', -1),
+        (34234, -1),
     ]
 )
 def test_checkout_solution(input_value, expected_value):
     assert checkout(input_value) == expected_value
 
 
-@pytest.mark.parametrize(
+"""@pytest.mark.parametrize(
     'input_value, expected_error, expected_error_message',
     [
         (123, pytest.raises(NotAString), "123 is not a string."),
@@ -54,5 +56,6 @@ def test_checkout_only_accepts_known_skus(input_value, expected_error, expected_
         checkout(input_value)
     if exc_info or expected_error_message:
         assert exc_info.value.message == expected_error_message
+"""
 
 

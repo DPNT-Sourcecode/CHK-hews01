@@ -6,8 +6,7 @@ from errors.CHK_R1_errors import NotAString, NotInPriceTable
 def checkout(skus):
 
     if not isinstance(skus, str):
-        raise NotAString(skus)
-
+        return -1
     price_table = {
         "A": {"Price": 50, "Special Offers": {'Units': 3, "Price": 130}},
         "B": {"Price": 30, "Special Offers": {'Units': 2, "Price": 45}},
@@ -33,10 +32,10 @@ def checkout(skus):
                 sku_offer_units = sku_offers.get('Units')
                 sku_offer_price = sku_offers.get('Price')
                 if sku_count % sku_offer_units == 0:
-                    total_price -= price * sku_count
+                    total_price -= price * sku_offer_units
                     total_price += sku_offer_price
         else:
-            raise NotInPriceTable(skus)
+            return -1
 
     return total_price
 

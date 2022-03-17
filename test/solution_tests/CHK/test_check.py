@@ -41,6 +41,7 @@ def test_checkout_only_accepts_strings(input_value, expected_error, expected_err
     'input_value, expected_error, expected_error_message',
     [
         ("F", pytest.raises(NotInPriceTable), "F is not an SKU in the price table."),
+        ("j75", pytest.raises(NotInPriceTable), "j75 is not an SKU in the price table."),
     ]
 )
 def test_checkout_only_accepts_known_skus(input_value, expected_error, expected_error_message):
@@ -48,3 +49,4 @@ def test_checkout_only_accepts_known_skus(input_value, expected_error, expected_
         checkout(input_value)
     if exc_info or expected_error_message:
         assert exc_info.value.message == expected_error_message
+

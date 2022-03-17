@@ -15,9 +15,13 @@ def checkout(skus):
         "D": {"Price": 15}
     }
 
-    sku_row = price_table.get(skus)
-    if sku_row:
-        price = sku_row["Price"]
-        return price
+    for sku in skus:
+        sku_row = price_table.get(sku)
+        if sku_row:
+            price = sku_row["Price"]
+            return price
+        else:
+            raise NotInPriceTable(skus)
+
 
 

@@ -26,9 +26,24 @@ def test_checkout_solution(input_value, expected_value):
     'input_value, expected_error, expected_error_message',
     [
         (123, pytest.raises(NotAString), "123 is not a string."),
+        (['grace'], pytest.raises(NotAString), "['grace'] is not a string."),
+        ({'a': 5}, pytest.raises(NotAString), "{'a': 5} is not a string."),
     ]
 )
-def test_hello_solution_only_accepts_strings(input_value, expected_error, expected_error_message):
+def test_checkout_only_accepts_strings(input_value, expected_error, expected_error_message):
+    with expected_error as exc_info:
+        checkout(input_value)
+    if exc_info or expected_error_message:
+        assert exc_info.value.message == expected_error_message
+
+
+@pytest.mark.parametrize(
+    'input_value, expected_error, expected_error_message',
+    [
+        ("F", pytest.raises(NotInPriceTable), "F is not an SKU in the price table."),
+    ]
+)
+def test_checkout_only_accepts_known_skus(input_value, expected_error, expected_error_message):
     with expected_error as exc_info:
         checkout(input_value)
     if exc_info or expected_error_message:

@@ -41,6 +41,7 @@ def checkout(skus):
                     if sku_offer_ppu < current_ppu and sku_counter >= sku_offer_units:
                         sku_decrementer = sku_offer_units
                         total_price += sku_offer_price
+
                 sku_counter -= sku_decrementer
                 if not sku_decrementer:
                     total_price += sku_counter * unit_price
@@ -49,3 +50,4 @@ def checkout(skus):
             total_price += unit_price * sku_count
 
     return total_price
+

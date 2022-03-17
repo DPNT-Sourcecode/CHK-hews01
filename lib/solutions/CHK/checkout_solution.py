@@ -9,8 +9,8 @@ def checkout(skus):
         raise NotAString(skus)
 
     price_table = {
-        "A": {"Price": 50, "Special Offers": {3: 130}},
-        "B": {"Price": 30, "Special Offers": {2: 45}},
+        "A": {"Price": 50, "Special Offers": {'Units': 3, "Price": 130}},
+        "B": {"Price": 30, "Special Offers": {'Units': 2, "Price": 45}},
         "C": {"Price": 20},
         "D": {"Price": 15}
     }
@@ -30,15 +30,16 @@ def checkout(skus):
 
             sku_offers = sku_row.get('Special Offers')
             if sku_offers:
-                sku_offer_price = sku_offers.get(sku_count)
-                if sku_offer_price:
+                sku_offer_units = sku_offers.get('Units')
+                sku_offer_price = sku_offers.get('Price')
+                if sku_count % sku_offer_units == 0:
                     total_price -= price * sku_count
                     total_price += sku_offer_price
-
         else:
             raise NotInPriceTable(skus)
 
     return total_price
+
 
 
 

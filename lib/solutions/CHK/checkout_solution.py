@@ -11,7 +11,7 @@ def checkout(skus):
         "B": {"Price": 30, "Special Offers": [{'Units': 2, "Price": 45, 'PPU': 45/2}]},
         "C": {"Price": 20},
         "D": {"Price": 15},
-        "E": {"Price": 40}
+        "E": {"Price": 40, "Free Items": {'Units': 2, 'Item': "B"}},
     }
 
     sku_collector = {}
@@ -23,6 +23,18 @@ def checkout(skus):
             sku_collector[sku] += 1
         else:
             return -1
+
+    total_price = 0
+    for sku in sku_collector.keys():
+        sku_count = sku_collector[sku]
+        sku_row = price_table[sku]
+
+        sku_free_items = sku_row.get('Free Items')
+        sku_counter = sku_count
+        if sku_free_items:
+            print(sku_free_items)
+
+
     total_price = 0
     for sku in sku_collector.keys():
         sku_count = sku_collector[sku]
@@ -54,8 +66,3 @@ def checkout(skus):
             total_price += unit_price * sku_count
 
     return total_price
-
-
-
-
-

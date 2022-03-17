@@ -49,6 +49,13 @@ def checkout(skus):
         else:
             return -1
 
+    sku_collector = adjust_collector_for_free_items(sku_collector)
+    sku_collector = adjust_collector_for_grouped_items(sku_collector)
+    total_price = calculate_basket_price(sku_collector)
+    return total_price
+
+
+def adjust_collector_for_free_items(sku_collector):
     for sku in sku_collector.keys():
         sku_count = sku_collector[sku]
         sku_row = price_table[sku]
@@ -67,7 +74,14 @@ def checkout(skus):
                             sku_collector[sku_free_item] -= 1
                     else:
                         break
+    return sku_collector
 
+
+def adjust_collector_for_grouped_items(sku_collector):
+    return sku_collector
+
+
+def calculate_basket_price(sku_collector):
     total_price = 0
     for sku in sku_collector.keys():
         sku_count = sku_collector[sku]
@@ -99,6 +113,7 @@ def checkout(skus):
             total_price += unit_price * sku_count
 
     return total_price
+
 
 
 

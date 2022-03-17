@@ -15,7 +15,12 @@ def does_not_raise():
         ('A', 50),
         ('B', 30),
         ('C', 20),
-        ('D', 15)
+        ('D', 15),
+        ('AA', 100),
+        ('ABCD', 115),
+        ('AAA', 130),
+        ('BB', 45),
+        ('AAAAAA', 260),
     ]
 )
 def test_checkout_solution(input_value, expected_value):
@@ -49,4 +54,5 @@ def test_checkout_only_accepts_known_skus(input_value, expected_error, expected_
         checkout(input_value)
     if exc_info or expected_error_message:
         assert exc_info.value.message == expected_error_message
+
 

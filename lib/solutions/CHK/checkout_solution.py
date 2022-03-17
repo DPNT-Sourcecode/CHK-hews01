@@ -31,7 +31,7 @@ price_table = {
         'X': {"Price": 17, "Grouped Items": {"Group": 1}},
         'Y': {"Price": 10, "Grouped Items": {"Group": 1}},
         'Z': {"Price": 21, "Grouped Items": {"Group": 1}},
-        'Group1': {"Price": 45, "SKUs": ['S', 'T', 'X', 'Y', 'Z']}
+        'Group1': {"Price": 45, "Units": 3, "SKUs": ['S', 'T', 'X', 'Y', 'Z']}
     }
 
 
@@ -83,13 +83,18 @@ def adjust_collector_for_grouped_items(sku_collector):
         if table_entry_key.startswith("Group"):
             group_name = table_entry_key
             group_skus = price_table[group_name]['SKUs']
+            group_units = price_table[group_name]['Units']
             group_sku_collector = {}
+            group_sku_counter = 0
             for sku in sku_collector.keys():
                 if sku in group_skus:
                     sku_price = price_table[sku]['Price']
                     sku_count = sku_collector[sku]
                     group_sku_collector[sku] = {'Price': sku_price, 'Units': sku_count}
-            print(group_sku_collector)
+                    group_sku_counter += sku_count
+        sku_collector[group_name] = 
+
+
 
     return sku_collector
 
@@ -126,3 +131,4 @@ def calculate_basket_price(sku_collector):
             total_price += unit_price * sku_count
 
     return total_price
+

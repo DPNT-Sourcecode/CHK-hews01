@@ -23,14 +23,14 @@ price_table = {
         'P': {"Price": 50, "Special Offers": [{'Units': 5, "Price": 200}]},
         'Q': {"Price": 30, "Special Offers": [{'Units': 3, "Price": 80}]},
         'R': {"Price": 50, "Free Items": {'Units': 3, 'Item': "Q"}},
-        'S': {"Price": 20, "Grouped Items": {"Group": 1},
-        'T': {"Price": 20, "Grouped Items": {"Group": 1},
+        'S': {"Price": 20, "Grouped Items": {"Group": 1}},
+        'T': {"Price": 20, "Grouped Items": {"Group": 1}},
         'U': {"Price": 40, "Free Items": {'Units': 4, 'Item': "U"}},
         'V': {"Price": 50, "Special Offers": [{'Units': 2, "Price": 90}, {'Units': 3, "Price": 130}]},
         'W': {"Price": 20},
-        'X': {"Price": 17, "Grouped Items": {"Group": 1},
-        'Y': {"Price": 10, "Grouped Items": {"Group": 1},
-        'Z': {"Price": 21, "Grouped Items": {"Group": 1},
+        'X': {"Price": 17, "Grouped Items": {"Group": 1}},
+        'Y': {"Price": 10, "Grouped Items": {"Group": 1}},
+        'Z': {"Price": 21, "Grouped Items": {"Group": 1}},
         'Group1': {"Price": 45}
     }
 
@@ -79,13 +79,14 @@ def adjust_collector_for_free_items(sku_collector):
 
 
 def adjust_collector_for_grouped_items(sku_collector):
-    for sku in sku_collector.keys():
-        sku_count = sku_collector[sku]
-        sku_row = price_table[sku]
+    for sku in price_table.keys():
+        if sku.startswith("Group"):
+            sku_count = sku_collector[sku]
+            sku_row = price_table[sku]
 
-        sku_grouped_items = sku_row.get('Grouped Items')
-        sku_counter = sku_count
-        if sku_grouped_items:
+            sku_grouped_items = sku_row.get('Grouped Items')
+            sku_counter = sku_count
+
             print(sku_grouped_items)
 
     return sku_collector
@@ -123,8 +124,3 @@ def calculate_basket_price(sku_collector):
             total_price += unit_price * sku_count
 
     return total_price
-
-
-
-
-

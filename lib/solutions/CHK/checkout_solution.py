@@ -1,4 +1,5 @@
 import math
+import operator
 
 
 # noinspection PyUnusedLocal
@@ -97,7 +98,8 @@ def adjust_collector_for_grouped_items(sku_collector):
                 for sku in group_sku_collector.keys():
                     sku_collector[sku] = 0
             else:
-                min(group_sku_collector.values(), key=operator.itemgetter('size'))
+                print(min(group_sku_collector.values(), key=operator.itemgetter('Price')))
+                print(min(group_sku_collector, key=lambda k: group_sku_collector[k]['Price']))
             #while group_sku_counter != 0:
             #    current_sku_prices = []
                # for sku in group_sku_collector.keys():
@@ -141,6 +143,7 @@ def calculate_basket_price(sku_collector):
             total_price += unit_price * sku_count
 
     return total_price
+
 
 
 

@@ -23,6 +23,8 @@ def does_not_raise():
         ('BB', 45),
         ('AAAAA', 200),
         ('AAAAAA', 250),
+        ('AAAAAAAAA', 380),
+        ('BBBBB', 135),
         ('s', -1),
         (34234, -1),
     ]

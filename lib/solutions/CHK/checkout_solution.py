@@ -33,6 +33,7 @@ def checkout(skus):
         if sku_offers:
             while sku_counter != 0:
                 sku_decrementer = 0
+                current_offer_price = 0
                 current_ppu = 100000000
                 for sku_offer in sku_offers:
                     sku_offer_units = sku_offer.get('Units')
@@ -42,17 +43,18 @@ def checkout(skus):
                     if sku_offer_ppu < current_ppu and sku_counter >= sku_offer_units:
                         sku_decrementer = sku_offer_units
                         current_ppu = sku_offer_ppu
-                        total_price += sku_offer_price
+                        current_offer_price = sku_offer_price
 
+                total_price += current_offer_price
                 sku_counter -= sku_decrementer
                 if not sku_decrementer:
                     total_price += sku_counter * unit_price
                     break
-                print(sku, total_price)
         else:
             total_price += unit_price * sku_count
 
     return total_price
+
 
 
 

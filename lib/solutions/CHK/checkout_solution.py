@@ -11,7 +11,8 @@ def checkout(skus):
         "A": {"Price": 50, "Special Offers": {'Units': 3, "Price": 130}},
         "B": {"Price": 30, "Special Offers": {'Units': 2, "Price": 45}},
         "C": {"Price": 20},
-        "D": {"Price": 15}
+        "D": {"Price": 15},
+        "E": {"Price": 40}
     }
     total_price = 0
     sku_collector = {}
@@ -38,3 +39,4 @@ def checkout(skus):
             return -1
 
     return total_price
+

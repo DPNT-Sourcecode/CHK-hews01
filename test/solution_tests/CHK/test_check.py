@@ -7,10 +7,13 @@ import pytest
     [
         ('A', 50),
         ('B', 30),
+        ('C', 20),
+        ('D', 15)
     ]
 )
 def test_checkout_solution(input_value, expected_value):
     assert checkout(input_value) == expected_value
+
 
 
 

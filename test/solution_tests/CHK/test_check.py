@@ -1,4 +1,4 @@
-from lib.solutions.CHK import checkout_solution
+from lib.solutions.CHK.checkout_solution import checkout
 import pytest
 from contextlib import contextmanager
 
@@ -9,13 +9,15 @@ def does_not_raise():
 
 
 @pytest.mark.parametrize(
-    'input, expected_value',
+    'input_value, expected_value',
     [
         ('A', 50),
+        ('B', 30),
     ]
 )
-def test_checkout_solution(input, expected_value):
-    assert checkout_solution(input) == expected_value
+def test_checkout_solution(input_value, expected_value):
+    assert checkout(input_value) == expected_value
+
 
 
 

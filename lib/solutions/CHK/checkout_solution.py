@@ -8,12 +8,12 @@ def checkout(skus):
         return -1
     price_table = {
         "A": {"Price": 50, "Special Offers": [{'Units': 3, "Price": 130, 'PPU': 130/3}, {'Units': 5, "Price": 200, "PPU": 200/5}]},
-        "B": {"Price": 30, "Special Offers": [{'Units': 2, "Price": 45}]},
+        "B": {"Price": 30, "Special Offers": [{'Units': 2, "Price": 45, 'PPU': 45/2}]},
         "C": {"Price": 20},
         "D": {"Price": 15},
         "E": {"Price": 40}
     }
-    total_price = 0
+
     sku_collector = {}
     for sku in skus:
         sku_row = price_table.get(sku)
@@ -41,6 +41,7 @@ def checkout(skus):
                     if sku_offer_ppu < current_ppu and sku_counter >= sku_offer_units:
                         sku_decrementer = sku_offer_units
                         total_price += sku_offer_price
+                sku_counter -= sku_decrementer
                 if not sku_decrementer:
                     total_price += sku_counter * unit_price
                     break
@@ -48,6 +49,3 @@ def checkout(skus):
             total_price += unit_price * sku_count
 
     return total_price
-
-
-

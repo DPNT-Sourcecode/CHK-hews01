@@ -1,5 +1,6 @@
 import math
 
+
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus):
@@ -24,7 +25,6 @@ def checkout(skus):
         else:
             return -1
 
-    total_price = 0
     for sku in sku_collector.keys():
         sku_count = sku_collector[sku]
         sku_row = price_table[sku]
@@ -33,14 +33,16 @@ def checkout(skus):
         sku_counter = sku_count
         if sku_free_items:
             sku_free_item_units = sku_free_items['Units']
-            sku_free_item = sku_free_items['B']
+            sku_free_item = sku_free_items['Item']
 
             if sku_free_item in sku_collector.keys():
                 while sku_counter != 0:
                     if sku_counter - sku_free_item_units >= 0:
                         sku_counter -= sku_free_item_units
                         if sku_collector[sku_free_item] > 0:
-                            sku_collector[sku_free_item_units] -= 1
+                            sku_collector[sku_free_item] -= 1
+                    else:
+                        break
 
     total_price = 0
     for sku in sku_collector.keys():
@@ -53,7 +55,7 @@ def checkout(skus):
             while sku_counter != 0:
                 sku_decrementer = 0
                 current_offer_price = 0
-                current_ppu = 100000000
+                current_ppu = math.inf
                 for sku_offer in sku_offers:
                     sku_offer_units = sku_offer.get('Units')
                     sku_offer_price = sku_offer.get('Price')
@@ -73,4 +75,5 @@ def checkout(skus):
             total_price += unit_price * sku_count
 
     return total_price
+
 

@@ -13,6 +13,7 @@ def checkout(skus):
         "C": {"Price": 20},
         "D": {"Price": 15},
         "E": {"Price": 40, "Free Items": {'Units': 2, 'Item': "B"}},
+        "F": {"Price": 10, "Free Items": {'Units': 3, 'Item': "F"}},
     }
 
     sku_collector = {}
@@ -75,5 +76,6 @@ def checkout(skus):
             total_price += unit_price * sku_count
 
     return total_price
+
 
 

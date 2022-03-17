@@ -29,7 +29,12 @@ def does_not_raise():
         (34234, -1),
         ('EEB', 80),
         ('EEEB', 120),
-        ('EEEEBB', 160)
+        ('EEEEBB', 160),
+        ('F', 10),
+        ('FF', 20),
+        ('FFF', 20),
+        ('FFFF', 30),
+        ('FFFFFF', 40)
     ]
 )
 def test_checkout_solution(input_value, expected_value):

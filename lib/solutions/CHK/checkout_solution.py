@@ -3,11 +3,8 @@ import math
 
 # noinspection PyUnusedLocal
 # skus = unicode string
-def checkout(skus):
 
-    if not isinstance(skus, str):
-        return -1
-    price_table = {
+price_table = {
         "A": {"Price": 50, "Special Offers": [{'Units': 3, "Price": 130}, {'Units': 5, "Price": 200}]},
         "B": {"Price": 30, "Special Offers": [{'Units': 2, "Price": 45}]},
         "C": {"Price": 20},
@@ -35,6 +32,12 @@ def checkout(skus):
         'Y': {"Price": 10},
         'Z': {"Price": 50},
     }
+
+
+def checkout(skus):
+
+    if not isinstance(skus, str):
+        return -1
 
     sku_collector = {}
     for sku in skus:
@@ -96,3 +99,4 @@ def checkout(skus):
             total_price += unit_price * sku_count
 
     return total_price
+

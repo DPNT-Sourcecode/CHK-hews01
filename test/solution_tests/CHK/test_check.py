@@ -86,7 +86,3 @@ def test_checkout_solution_multibuy(input_value, expected_value):
 )
 def test_checkout_solution_free_item(input_value, expected_value):
     assert checkout(input_value) == expected_value
-
-
-
-

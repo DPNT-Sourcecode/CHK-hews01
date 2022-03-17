@@ -24,7 +24,7 @@ def does_not_raise():
         ('AAAAA', 200),
         ('AAAAAA', 250),
         ('AAAAAAAAA', 380),
-        ('BBBBB', 135),
+        ('BBBBB', 120),
         ('s', -1),
         (34234, -1),
     ]
@@ -61,3 +61,4 @@ def test_checkout_only_accepts_known_skus(input_value, expected_error, expected_
     if exc_info or expected_error_message:
         assert exc_info.value.message == expected_error_message
 """
+

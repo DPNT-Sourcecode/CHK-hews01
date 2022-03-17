@@ -26,6 +26,7 @@ def checkout(skus):
     total_price = 0
     for sku in sku_collector.keys():
         sku_count = sku_collector[sku]
+        sku_row = price_table[sku]
         unit_price = sku_row["Price"]
         sku_offers = sku_row.get('Special Offers')
         sku_counter = sku_count
@@ -47,12 +48,12 @@ def checkout(skus):
                 if not sku_decrementer:
                     total_price += sku_counter * unit_price
                     break
+                print(sku, total_price)
         else:
             total_price += unit_price * sku_count
 
-        print(sku, total_price)
-
     return total_price
+
 
 
 

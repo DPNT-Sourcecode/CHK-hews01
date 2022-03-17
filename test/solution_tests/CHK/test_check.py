@@ -92,8 +92,9 @@ def test_checkout_solution_free_item(input_value, expected_value):
         ('STX', 45),
         ('STXYZ', 72),
         ('XZZZ', 62),
-        ('STXYZYYYYY', 105),
+        ('STXYZSTXYZ', 145),
     ]
 )
 def test_checkout_solution_grouped_items(input_value, expected_value):
     assert checkout(input_value) == expected_value
+

@@ -73,8 +73,6 @@ def test_checkout_solution_multibuy(input_value, expected_value):
         ('EEB', 80),
         ('EEEB', 120),
         ('EEEEBB', 160),
-        ('F', 10),
-        ('FF', 20),
         ('FFF', 20),
         ('FFFF', 30),
         ('FFFFFF', 40),
@@ -96,4 +94,5 @@ def test_checkout_solution_free_item(input_value, expected_value):
 )
 def test_checkout_solution_grouped_items(input_value, expected_value):
     assert checkout(input_value) == expected_value
+
 

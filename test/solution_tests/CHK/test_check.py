@@ -35,7 +35,7 @@ def does_not_raise():
         ('V', 50),
         ('W', 20),
         ('X', 17),
-        ('Y', 10),
+        ('Y', 20),
         ('Z', 21),
         ('s', -1),
         (34234, -1),
@@ -90,15 +90,16 @@ def test_checkout_solution_free_item(input_value, expected_value):
     'input_value,expected_value',
     [
         ('STX', 45),
-        ('STXYZ', 72),
+        ('STXYZ', 82),
         ('XZZZ', 62),
         ('STXYZY', 90),
         ('ZZZZZZZ', 111),
-        ('YYYXXXZZZZ', 145),
+        ('YYYXXXZZZZ', 152),
     ]
 )
 def test_checkout_solution_grouped_items(input_value, expected_value):
     assert checkout(input_value) == expected_value
+
 
 
 

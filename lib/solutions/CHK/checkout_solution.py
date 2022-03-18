@@ -30,7 +30,7 @@ price_table = {
         'V': {"Price": 50, "Special Offers": [{'Units': 2, "Price": 90}, {'Units': 3, "Price": 130}]},
         'W': {"Price": 20},
         'X': {"Price": 17, "Grouped Items": {"Group": 1}},
-        'Y': {"Price": 10, "Grouped Items": {"Group": 1}},
+        'Y': {"Price": 20, "Grouped Items": {"Group": 1}},
         'Z': {"Price": 21, "Grouped Items": {"Group": 1}},
         'Group1': {"Price": 45, "Units": 3, "SKUs": ['S', 'T', 'X', 'Y', 'Z']}
     }
@@ -144,6 +144,7 @@ def calculate_basket_price(sku_collector):
             total_price += unit_price * sku_count
 
     return total_price
+
 
 
 

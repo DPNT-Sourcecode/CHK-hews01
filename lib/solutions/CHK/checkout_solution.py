@@ -144,10 +144,3 @@ def calculate_basket_price(sku_collector):
             total_price += unit_price * sku_count
 
     return total_price
-
-
-
-
-
-
-
